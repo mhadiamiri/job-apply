@@ -15,6 +15,8 @@
 - Currently employed: Yes, full-time
 - Current employer: Revolution Data Platforms
 - Current title: use the title on the attached resume
+  - Title on forms, ai track: Applied AI Engineer
+  - Title on forms, data track: Cloud Data Engineer
 - Why are you looking: generate per application. Theme: growing my career
   toward applied AI engineering, building on my data engineering and AI work.
   One or two plain sentences, no criticism of the current employer.
@@ -35,7 +37,7 @@
 - Willing to relocate: No
 
 ## Compensation
-- Target base salary: 85,000 CAD
+- Salary: posted range → its minimum, but not below 85,000 CAD. No range → 85,000 CAD. Annual.
 - US-remote roles: same target, 85,000 CAD. If the form requires USD, convert
   at the current rate and round to the nearest 1,000.
 - Single number when a form forces one: 85,000 CAD
@@ -55,14 +57,18 @@
 | Databricks | 2 |
 | Microsoft Fabric | 2 |
 | Spark / PySpark | 2 |
-| LLMs / GenAI / RAG | 2 |
-| LangGraph / AI agents | 2 |
+| LLMs / GenAI / RAG | 3 |
+| AI incl. ML / neural networks | 4 |
+| AI agents | 2 |
 Skills not listed: derive from the resume dates where the skill appears.
 If unclear, ask. Never enter a number above what the resume dates support.
 
 ## Defaults
 - How did you hear about us: LinkedIn (or the actual source if different)
 - Background check consent: Yes
+- Bachelor's degree completed: Yes
+- Highest degree: Master's
+- SMS consent: Yes
 - Previously employed at this company: No, unless the user says otherwise
 - Referral: per application; ask if the form requires it
 
@@ -82,3 +88,7 @@ role type. Follow voice.md. No numbers that are not in facts.md.
 - Why this company / this role
 - A project you are proud of: pick the resume project closest to the posting
 - Why are you looking: see Employment status
+
+## Learned answers
+Appended at runtime by `apply-linkedin` when a screening question has no answer in
+this file. One line per entry, newest last: `- <question> — <answer>`

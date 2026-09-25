@@ -8,16 +8,22 @@ description: Update tracker.csv with status, dates, fit score, and follow-ups, a
 Purpose: **updates `tracker.csv`** — the single ledger of every application.
 
 ## Schema
-`company,role,url,status,fit_score,resume_base,date_added,date_applied,date_followup_1,date_followup_2,followup_note`
+`company,role,url,status,fit_score,resume_base,location,source,salary_entered,date_added,date_applied,date_followup_1,date_followup_2,followup_note`
 
 `resume_base` sits immediately after `fit_score` and holds `ai`, `data`, or
 blank if no base has been selected yet. See the base-selection rule in
 `CLAUDE.md`.
 
+- `location`: Ottawa / Remote (Canada) or the posting's location.
+- `source`: where the job came from (LinkedIn, company site, referral).
+- `salary_entered`: the number actually submitted, after the `answers.md` salary rule.
+
 Allowed `status` values, in pipeline order:
 
 `sourced` → `assessed` → `resumed` → `lettered` → `ready-to-submit` → `applied` → `interviewing` → `offer` → `closed`
 Terminal negatives: `skipped` (NO-GO), `rejected`, `withdrawn`, `ghosted`
+Parked, resolved later in the session: `waiting-question`, `waiting-auth`
+
 
 ## Update rules
 - One row per company+role. **Update in place**; never append a duplicate.

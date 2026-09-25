@@ -1,2 +1,2 @@
-company,role,url,status,fit_score,resume_base,date_added,date_applied,date_followup_1,date_followup_2,followup_note
-Acme,Applied AI Engineer,,sourced,,,2026-09-24,,,,Awaiting fit assessment; no base selected yet
+company,role,url,status,fit_score,resume_base,location,source,salary_entered,date_added,date_applied,date_followup_1,date_followup_2,followup_note
+Acme,Applied AI Engineer,,sourced,,,Ottawa / Remote (Canada),,,2026-09-24,,,,Awaiting fit assessment; no base selected yet

@@ -30,6 +30,23 @@ exists in `profile/facts.md`.
   The data base (`resume-data.pdf`) passes the gate.
 
 
+## Submit mode
+```
+submit_mode: review        # review | auto
+```
+- `review`: fill everything, stop on the final review page, show a short summary, wait for "submit".
+- `auto`: submit once every field is verified against profile files.
+- Session cap: 15 applications per session unless Hadi says otherwise.
+
+## Lanes
+- Fast lane (default): `apply-linkedin` session, `apply-external` for off-site jobs, `log`.
+- Full lane (on request for a specific job): `intake`, `assess-fit`, `select-resume`,
+  `cover-letter`, `apply-external`, `log`.
+
+## Authentication
+Hadi authorizes sign-in and account creation for job applications.
+See the Authentication section in `apply-external`.
+
 ## Rules
 
 1. **Never invent.** No metrics, employers, titles, dates, degrees, clearance,
@@ -46,16 +63,13 @@ exists in `profile/facts.md`.
    exclamation marks, and weasel intensifiers are errors, not style choices.
    `.claude/hooks/check_voice.py` checks this after every write.
 5. **One row per job in `tracker.csv`,** updated through the `log` skill only.
-6. **Never submit anything.** The `fill-application` skill stops before the
-   submit button. Attestations (work auth, demographic, veteran, disability) are
-   always the user's to make.
-7. **Stop at NO-GO** and say so, unless the user explicitly overrides.
-8. **Ask over assume** when a posting is ambiguous, a capture failed, or a
+6. **Stop at NO-GO** and say so, unless the user explicitly overrides.
+7. **Ask over assume** when a posting is ambiguous, a capture failed, or a
    decision is the user's alone (comp, relocation, take-home vs equity).
 
 ## Workflow
 
-`intake` → `assess-fit` → `select-resume` → `cover-letter` → `fill-application` → `log`
+`intake` → `assess-fit` → `select-resume` → `cover-letter` → `apply-external` → `log`
 (checks in with the user at each arrow)
 
 ### intake
@@ -86,10 +100,14 @@ Four short paragraphs, under ~250 words, styled from
 company; the body is two evidence items; the fit line is honest; the close is
 clear. Status `lettered`.
 
-### fill-application
-Drive the browser, fill from `form-answers.md`, verify every field, then **stop**
-and hand back the submit button. Sensitive attestations are never touched.
-Status `ready-to-submit`, then `applied` only after the user confirms.
+### apply-external
+Complete an application on a company site or ATS (Workday, Greenhouse, Lever,
+Ashby, Jobright), including authorized sign-in and account creation. Upload
+`Hadi_Amiri_Resume.pdf` and `cover-letter.pdf` as staged. Submit per
+`submit_mode`: `review` stops on the final review page and waits for "submit";
+`auto` submits once every field is verified. Count as applied only on a
+confirmation page. Park anything needing auth as `waiting-auth`, and unanswered
+questions as `waiting-question`, then ask them in one batch.
 
 ### log
 Update `tracker.csv` in place at every stage change. Set follow-ups at +7 and
