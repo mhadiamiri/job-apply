@@ -9,7 +9,9 @@ Purpose: **fit score, strengths, honest gaps, go/no-go** → `fit.md`
 
 ## Inputs
 - `applications/<folder>/jd.md` (required)
-- `profile/facts.md` and `profile/master-resume.docx` (evidence, read-only)
+- `profile/facts.md` and the selected resume base
+  (`profile/resumes/<base>/resume-<base>.md`, evidence, read-only)
+
 - `profile/answers.md` (logistics)
 
 ## Steps

@@ -1,7 +1,9 @@
 # Fit Assessment — Acme, Applied AI Engineer
 
 - **Assessed:** 2026-09-24
-- **Scored against:** `jd.md` · **Evidence from:** `profile/facts.md`, `profile/master-resume.docx`
+- **Resume base:** _ai | data (reason: the posting's top 3 must-haves)_
+- **Scored against:** `jd.md` · **Evidence from:** `profile/facts.md` and the
+  selected resume base (`profile/resumes/<base>/resume-<base>.md`)
 
 ## Score
 

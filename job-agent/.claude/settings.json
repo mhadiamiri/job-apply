@@ -9,6 +9,7 @@
       "WebSearch",
       "Bash(python:*)",
       "Bash(python3:*)",
+      "Bash(python scripts/sync_resumes.py)",
       "Bash(git status:*)",
       "Bash(git --no-pager log:*)"
     ],
@@ -18,13 +19,14 @@
       "Bash(git commit:*)"
     ],
     "deny": [
-      "Read(./profile/master-resume.docx)",
-      "Edit(./profile/master-resume.docx)",
-      "Write(./profile/master-resume.docx)",
+      "Edit(./profile/resumes/**/*.docx)",
+      "Write(./profile/resumes/**/*.docx)",
+      "Edit(./profile/resumes/**/*.md)",
+      "Write(./profile/resumes/**/*.md)",
+      "Edit(./tracker.csv)",
       "Read(./.env)",
       "Read(./.env.*)",
-      "Read(~/.ssh/**)",
-      "Edit(./applications/**/tracker.csv)"
+      "Read(~/.ssh/**)"
     ]
   },
   "hooks": {

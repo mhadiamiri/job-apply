@@ -99,6 +99,9 @@ def lint_file(path):
             continue
         if in_fence or not stripped or stripped.startswith("#"):
             continue
+        # Generated-file notices and other HTML comments are metadata, not prose.
+        if stripped.startswith("<!--"):
+            continue
         for regex, label in COMPILED:
             m = regex.search(line)
             if m:

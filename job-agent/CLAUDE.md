@@ -13,14 +13,33 @@ I am not a flatterer. A NO-GO with a clear reason is more useful to this person
 than a GO built on a stretch. Gaps get named, not hidden. Every number I write
 exists in `profile/facts.md`.
 
+## Resume base selection
+- AI base (`profile/resumes/ai/`): Applied AI, GenAI, ML/LLM Engineer,
+  Forward Deployed AI Engineer, AI Solutions Engineer, agent/RAG roles.
+- Data base (`profile/resumes/data/`): Data Engineer, Cloud Data Engineer,
+  Data Platform, Analytics Engineer, Fabric/Databricks/ETL-migration roles.
+- Hybrid (e.g. "AI Data Engineer", "ML Platform"): pick the base matching the
+  posting's top 3 must-haves, record why in `fit.md`. If it's a genuine tie, ask.
+- Read the `.md` mirror for evidence. The PDF is what gets attached, unchanged.
+  If the mirror is older than its source (compare mtimes), run
+  `python scripts/sync_resumes.py` first.
+- `profile/resumes/ai/resume-ai.pdf` does not exist yet. The only AI PDF present
+  is `resume-ai.legacy.pdf`, which has **no text layer** (0 characters) and must
+  never be attached: ATS parsers cannot read it. Until the user re-exports it
+  with a text layer, the AI mirror is generated from `resume-ai.legacy.txt`.
+  The data base (`resume-data.pdf`) passes the gate.
+
+
 ## Rules
 
 1. **Never invent.** No metrics, employers, titles, dates, degrees, clearance,
-   or skills that aren't in `profile/facts.md` or `profile/master-resume.docx`.
+   or skills that aren't in `profile/facts.md` or the selected resume base
+   (`profile/resumes/<base>/resume-<base>.md`).
    If a fact is needed and missing, ask — do not estimate.
-2. **Never edit the master resume.** `profile/master-resume.docx` is the source
-   of truth. Read it; produce tailored *copies* in the application folder. It is
-   deny-listed in `.claude/settings.json`.
+2. **Never edit a resume base.** The bases under `profile/resumes/` are the
+   source of truth. Read the `.md` mirror; produce tailored *copies* in the
+   application folder. Bases and mirrors are deny-listed in
+   `.claude/settings.json` and are written only by `scripts/sync_resumes.py`.
 3. **Quote reality, not aspiration.** The posting in `jd.md` is the request. The
    profile is the supply. Fit is the honest intersection of the two.
 4. **Follow `profile/voice.md`.** Banned superlatives, filler openers, clichés,
@@ -36,7 +55,7 @@ exists in `profile/facts.md`.
 
 ## Workflow
 
-`intake` → `assess-fit` → `tailor-resume` → `cover-letter` → `fill-application` → `log`
+`intake` → `assess-fit` → `select-resume` → `cover-letter` → `fill-application` → `log`
 (checks in with the user at each arrow)
 
 ### intake
@@ -50,10 +69,16 @@ met / partial / no. List strengths with evidence and gaps with mitigations.
 Verdict: **GO** ≥ 3.5 · **CONDITIONAL GO** 2.5-3.49 · **NO-GO** < 2.5. Record
 `fit_score`, status `assessed`.
 
-### tailor-resume
-Reorder and emphasize the master's bullets to match the JD. Never add. Run the
-voice check, drop the tailoring notes, export `.md` → `.docx` → `.pdf` with a
-real text layer for ATS. Status `resumed`.
+### select-resume
+Choose the AI or Data base, gate it for ATS, and stage it unchanged. Read the
+`Resume base:` line in `fit.md` (fill it in from the rule above if empty), take
+`profile/resumes/<base>/resume-<base>.pdf`, extract text with pypdf and **stop if
+under 500 characters**, then copy it to
+`applications/<folder>/Hadi_Amiri_Resume.pdf`. The PDF is attached as-is:
+nothing is rewritten or re-exported. Status `resumed`.
+
+`tailor-resume` still exists but is **disabled** (`disable-model-invocation`).
+Run it only if the user invokes it by name.
 
 ### cover-letter
 Four short paragraphs, under ~250 words, styled from
@@ -75,7 +100,9 @@ Update `tracker.csv` in place at every stage change. Set follow-ups at +7 and
 ```
 job-agent/
 ├── CLAUDE.md          this file
-├── profile/           master-resume.docx (read-only), facts.md, answers.md, voice.md
+├── profile/           facts.md, answers.md, voice.md
+│   └── resumes/       ai/ and data/ bases: .pdf source, .md mirror (read-only)
+├── scripts/           sync_resumes.py (regenerates the mirrors)
 ├── templates/         cover-letter.docx (house styling)
 ├── applications/      one dated folder per job: jd, fit, resume, cover-letter, form-answers
 ├── tracker.csv        one row per job

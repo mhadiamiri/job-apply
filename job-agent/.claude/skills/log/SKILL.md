@@ -8,7 +8,11 @@ description: Update tracker.csv with status, dates, fit score, and follow-ups, a
 Purpose: **updates `tracker.csv`** — the single ledger of every application.
 
 ## Schema
-`company,role,url,status,fit_score,date_added,date_applied,date_followup_1,date_followup_2,followup_note`
+`company,role,url,status,fit_score,resume_base,date_added,date_applied,date_followup_1,date_followup_2,followup_note`
+
+`resume_base` sits immediately after `fit_score` and holds `ai`, `data`, or
+blank if no base has been selected yet. See the base-selection rule in
+`CLAUDE.md`.
 
 Allowed `status` values, in pipeline order:
 
@@ -20,6 +24,8 @@ Terminal negatives: `skipped` (NO-GO), `rejected`, `withdrawn`, `ghosted`
 - `date_added` = date `intake` ran. `date_applied` = date the user actually
   submitted (not the date the form was filled).
 - `fit_score` mirrors the weighted total from `fit.md`, one decimal.
+- `resume_base` mirrors the base recorded in `fit.md` (`ai` or `data`); set it
+  at the `assess-fit` stage, not later.
 - `url` is the original posting URL, always.
 - Read the file, modify the single row, write it back with the header intact
   and unchanged field order.

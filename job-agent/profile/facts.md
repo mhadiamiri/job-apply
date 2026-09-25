@@ -1,7 +1,12 @@
 # Facts
 
 Verified, source-of-truth data. The agent may only use facts stated here (or in
-`master-resume.docx`) and may never invent, embellish, or round numbers.
+the selected resume base, `profile/resumes/<base>/resume-<base>.md`) and may
+never invent, embellish, or round numbers.
+
+Populate this file from the inventory printed by `python scripts/sync_resumes.py`
+(word count, experience entries, years, and every number/percentage found).
+Every value below is still unverified until you confirm it against the source.
 
 Status legend: `[ ]` unverified · `[x]` verified (proof seen)
 
@@ -31,7 +36,6 @@ Status legend: `[ ]` unverified · `[x]` verified (proof seen)
 
 ## Links
 - LinkedIn:
-- GitHub:
 - Portfolio / site:
 - Other:
 

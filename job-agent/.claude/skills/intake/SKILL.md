@@ -27,8 +27,10 @@ Purpose: **URL or search → `jd.md` + folder**
 5. **Add a `tracker.csv` row** via the `log` skill with status `sourced` and
    `date_added` = today. Do not duplicate an existing row for the same
    company+role.
-6. **Create** `fit.md`, `resume.md`, `cover-letter.md`, `form-answers.md` from
-   their sibling templates in the example application folder.
+6. **Create** `fit.md`, `cover-letter.md`, `form-answers.md` from their sibling
+   templates. Do **not** create `resume.md`: resumes are attached as-is, so the
+   only resume artifact in the folder is `Hadi_Amiri_Resume.pdf`, staged later
+   by `select-resume`.
 
 ## Stop conditions
 Ask the user before continuing if: the posting is ambiguous about location or

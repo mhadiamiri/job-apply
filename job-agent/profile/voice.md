@@ -31,6 +31,8 @@ The following never appear in any generated document:
 - No bullet in a cover letter that just restates a resume line.
 
 ## Accuracy
-- Every claim traces to `facts.md` or `master-resume.docx`.
+- Every claim traces to `facts.md` or the selected resume base
+  (`profile/resumes/<base>/resume-<base>.md`).
+
 - Never invent metrics, employers, titles, dates, or clearance.
 - Keyword-matched phrasing is fine; keyword-stuffed sentences are not.

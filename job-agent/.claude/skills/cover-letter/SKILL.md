@@ -1,6 +1,6 @@
 ---
 name: cover-letter
-description: Draft a company-specific cover letter and export it to .docx and .pdf. Use after the resume is tailored, or when the user says "write a cover letter".
+description: Draft a company-specific cover letter and export it to .docx and .pdf. Use after select-resume has staged the resume, or when the user says "write a cover letter".
 ---
 
 # Cover letter
@@ -8,7 +8,10 @@ description: Draft a company-specific cover letter and export it to .docx and .p
 Purpose: **company + evidence → `cover-letter.md` → `.docx` → `.pdf`**
 
 ## Inputs
-- `applications/<folder>/jd.md`, `fit.md`, `resume.md`
+- `applications/<folder>/jd.md`, `fit.md`
+- The selected base's `.md` mirror (`profile/resumes/<base>/resume-<base>.md`) —
+  this is the evidence source. Do **not** use `applications/<folder>/resume.md`;
+  that file is deleted and resumes are attached as-is.
 - `templates/cover-letter.docx` (**your styling** — structure/layout template only)
 - `profile/facts.md`, `profile/voice.md`
 
@@ -16,8 +19,8 @@ Purpose: **company + evidence → `cover-letter.md` → `.docx` → `.pdf`**
 1. **Research the company** from the JD and its site: what it ships, who it is
    for, current focus. The hook must reference something real and specific. If
    nothing concrete is found, ask rather than guess.
-2. **Pick two pieces of evidence** from the tailored `resume.md` that map
-   directly to the role's top responsibilities. These become the body.
+2. **Pick two pieces of evidence** from the selected base's `.md` mirror that
+   map directly to the role's top responsibilities. These become the body.
 3. **Write four short paragraphs**, no filler:
    hook (their problem, their words) → evidence (2 items, with numbers) →
    honest fit (one line, gaps included if any) → close (clear ask).

@@ -1,2 +1,2 @@
-company,role,url,status,fit_score,date_added,date_applied,date_followup_1,date_followup_2,followup_note
-Acme,Applied AI Engineer,,assessing,,2026-09-24,,,,Pending fit assessment
+company,role,url,status,fit_score,resume_base,date_added,date_applied,date_followup_1,date_followup_2,followup_note
+Acme,Applied AI Engineer,,sourced,,,2026-09-24,,,,Awaiting fit assessment; no base selected yet

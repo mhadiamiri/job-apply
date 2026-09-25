@@ -14,7 +14,8 @@ final action** ("Submit application", "Sign and send", "Finish"). Not once, not
 ## Inputs
 - `applications/<folder>/form-answers.md` (per-field answers)
 - `profile/answers.md` (boilerplate), `profile/facts.md` (identifiers)
-- `resume.pdf`, `cover-letter.pdf`
+- Attachments: `applications/<folder>/Hadi_Amiri_Resume.pdf` (staged by
+  `select-resume`, unchanged) and `cover-letter.pdf`
 
 ## Steps
 1. **Load the portal** and map the form before typing. Screenshot/scan every
@@ -26,7 +27,9 @@ final action** ("Submit application", "Sign and send", "Finish"). Not once, not
    - Date pickers — type ISO `YYYY-MM-DD` and verify the displayed value.
    - Checkboxes (EEOC, veteran, disability, work auth) — **leave for the user**;
      record them under `## Sensitive / must-confirm before submit`.
-   - File uploads — attach the exported PDFs; verify the filename shown.
+   - File uploads — attach `Hadi_Amiri_Resume.pdf` and `cover-letter.pdf`
+     exactly as staged; never re-export or edit either. Verify the filename the
+     portal shows.
 4. **Verify every field** by re-reading the filled form against
    `form-answers.md`. Flag any field the form asks for that no answer covers.
 5. **Stop.** Summarize: fields filled, fields skipped and why, attachments
