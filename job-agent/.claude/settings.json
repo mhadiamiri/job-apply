@@ -8,6 +8,10 @@
       "WebFetch",
       "WebSearch",
       "mcp__claude-in-chrome",
+      "Edit(./applications/**)",
+      "Write(./applications/**)",
+      "Edit(./profile/answers.md)",
+      "Edit(./tracker.csv)",
       "Bash(python:*)",
       "Bash(python3:*)",
       "Bash(python scripts/sync_resumes.py)",
@@ -24,7 +28,6 @@
       "Write(./profile/resumes/**/*.docx)",
       "Edit(./profile/resumes/**/*.md)",
       "Write(./profile/resumes/**/*.md)",
-      "Edit(./tracker.csv)",
       "Read(./.env)",
       "Read(./.env.*)",
       "Read(~/.ssh/**)"

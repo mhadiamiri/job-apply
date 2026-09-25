@@ -23,6 +23,7 @@ Allowed `status` values, in pipeline order:
 `sourced` → `assessed` → `resumed` → `lettered` → `ready-to-submit` → `applied` → `interviewing` → `offer` → `closed`
 Terminal negatives: `skipped` (NO-GO), `rejected`, `withdrawn`, `ghosted`
 Parked, resolved later in the session: `waiting-question`, `waiting-auth`
+Shortlisted and sent to Telegram, not yet answered: `awaiting-approval`
 
 
 ## Update rules

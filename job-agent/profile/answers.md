@@ -37,10 +37,13 @@
 - Willing to relocate: No
 
 ## Compensation
-- Salary: posted range → its minimum, but not below 85,000 CAD. No range → 85,000 CAD. Annual.
-- US-remote roles: same target, 85,000 CAD. If the form requires USD, convert
-  at the current rate and round to the nearest 1,000.
-- Single number when a form forces one: 85,000 CAD
+- Posting states a single number → use it.
+- Posting states a range → use the minimum of the range.
+- Nothing posted → 85,000 CAD. Always annual.
+- Log the value used in `tracker.csv` `salary_entered`.
+- US-remote roles: if the form requires USD, convert at the current rate and round
+  to the nearest 1,000.
+- Single number when a form forces one: follow the three rules above.
 - Free-text salary field: "85,000 CAD base, open to discussing total compensation."
 - Contract rate: 60 CAD/hour
 

@@ -30,13 +30,11 @@ exists in `profile/facts.md`.
   The data base (`resume-data.pdf`) passes the gate.
 
 
-## Submit mode
-```
-submit_mode: review        # review | auto
-```
-- `review`: fill everything, stop on the final review page, show a short summary, wait for "submit".
-- `auto`: submit once every field is verified against profile files.
+## Approval and submit
+- `approval: telegram`. No application starts before Hadi approves it in Telegram.
+- After approval the agent fills AND submits. No second confirmation.
 - Session cap: 15 applications per session unless Hadi says otherwise.
+- Hadi may send any instruction through Telegram mid-session (e.g. "stop", "cap 5", "skip 2").
 
 ## Lanes
 - Fast lane (default): `apply-linkedin` session, `apply-external` for off-site jobs, `log`.
@@ -103,11 +101,11 @@ clear. Status `lettered`.
 ### apply-external
 Complete an application on a company site or ATS (Workday, Greenhouse, Lever,
 Ashby, Jobright), including authorized sign-in and account creation. Upload
-`Hadi_Amiri_Resume.pdf` and `cover-letter.pdf` as staged. Submit per
-`submit_mode`: `review` stops on the final review page and waits for "submit";
-`auto` submits once every field is verified. Count as applied only on a
-confirmation page. Park anything needing auth as `waiting-auth`, and unanswered
-questions as `waiting-question`, then ask them in one batch.
+`Hadi_Amiri_Resume.pdf` and `cover-letter.pdf` as staged. Nothing starts before
+Telegram approval; after approval the agent fills AND submits, with no second
+confirmation. Count as applied only on a confirmation page. Park anything needing
+auth as `waiting-auth`, and park only truly unknowable questions as
+`waiting-question`, then ask them in one batch.
 
 ### log
 Update `tracker.csv` in place at every stage change. Set follow-ups at +7 and

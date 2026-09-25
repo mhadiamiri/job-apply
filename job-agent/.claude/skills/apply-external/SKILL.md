@@ -25,14 +25,16 @@ posting (`get_page_text`) and apply the fit rules from `apply-linkedin`.
    - Contact: First Hadi, Last Amiri, email, country code Canada (+1), phone without
      country code, phone type Cell.
    - Current / most recent title: per track in `answers.md`.
-   - Salary: posted range → its minimum, but not below 85,000 CAD. No range → 85,000 CAD. Annual.
+   - Salary: posting states a single number → use it. Posting states a range → use the
+     minimum of the range. Nothing posted → 85,000 CAD. Always annual.
    - SMS consent: agree.
    - LinkedIn, work authorization, education: `answers.md` / `facts.md`. GitHub and portfolio: blank.
    - Screening questions: rules in `apply-linkedin`.
    - Cover letter: only if the field is required. Run `cover-letter` for this job and upload
      the PDF. Optional field: skip.
-5. Submit per `submit_mode`. On validation errors, fix the flagged fields and resubmit.
-6. Count as applied only when a confirmation / thank-you page appears.
+5. After Telegram approval, submit with no second confirmation. On validation errors, fix the flagged fields and resubmit.
+6. Count as applied only when a confirmation / thank-you page appears. Log the salary used in `tracker.csv` `salary_entered`.
+
 7. Close the tab, return to LinkedIn. "Did you finish applying?" → Yes. Log it.
 
 ## Authentication
@@ -44,8 +46,11 @@ Hadi authorizes sign-in and account creation for job applications.
 - Never write a password into chat, files, or `tracker.csv`.
 - Email verification: open Gmail in a new tab, open the newest message from that
   company, use the code or link, close the tab.
+- Passkey / Windows Hello prompt: cancel it and choose "Use password", "Sign in another way"
+  or "Continue with Google". If no alternative exists, park as `waiting-auth`.
+- Never ask Hadi for a PIN or password in Telegram or chat.
 - Workday: each company has its own account. Same email every time.
-- Passkey / Windows Hello, CAPTCHA, or any step the tools cannot complete: do not stall.
+- CAPTCHA or any step the tools cannot complete: do not stall.
   Park the job as `waiting-auth` with URL and reason, move to the next job. Hadi handles
   all `waiting-auth` jobs together at the end of the session.
 - In tracker notes write "account created on <site>" (never the password).
